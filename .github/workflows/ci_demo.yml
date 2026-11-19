@@ -1,4 +1,4 @@
-oname: CI DEMO
+name: CI DEMO
 on: push
 jobs:
   test:
