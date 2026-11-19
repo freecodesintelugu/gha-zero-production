@@ -1,10 +1,12 @@
 name: CI DEMO
-on: push
+on:
+  push:
 jobs:
   test:
     runs-on: ubuntu-22.04
     steps:
-      - name: Demo Pipeline
+      - name: Demo pipeline
         run: echo "This is demo pipeline"
-      - name: check user details
+
+      - name: Check user details
         run: echo "GitHub User: ${{ github.actor }}"
