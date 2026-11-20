@@ -1,0 +1,22 @@
+#this is sample CI Pipeline
+name: sample CI
+on: push
+permissions: 
+  contents: read
+env:
+  APP_NAME: sample_app
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  sample_ci_pipeline:
+    env:
+      APP_NAME: JOB_Level
+    runs-on: ubuntu-latest
+    steps:
+      - name: This is demo pipeline
+      - run: echo "Checking $APP_NAME"
+    
+
+
+
