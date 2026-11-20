@@ -10,8 +10,8 @@ concurrency:
   cancel-in-progress: true
 jobs:
   sample_ci_pipeline:
-    env:
-      APP_NAME: JOB_Level
+#    env:
+ #     APP_NAME: JOB_Level
     runs-on: ubuntu-latest
     steps:
       - run: echo "Checking $APP_NAME"
