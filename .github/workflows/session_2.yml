@@ -1,6 +1,15 @@
 #this is sample CI Pipeline
 name: sample CI
-on: push
+on: 
+  workflow_dispatch: 
+    inputs:
+      deployment_target:
+       description: "Choose a demo target"
+       required: true
+       type: choice
+       options:
+         - staging
+         - production
 permissions: 
   contents: read
 env:
