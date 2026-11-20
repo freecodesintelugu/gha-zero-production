@@ -14,7 +14,6 @@ jobs:
       APP_NAME: JOB_Level
     runs-on: ubuntu-latest
     steps:
-      - name: This is demo pipeline
       - run: echo "Checking $APP_NAME"
     
 
