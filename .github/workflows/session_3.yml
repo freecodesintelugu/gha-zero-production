@@ -9,5 +9,8 @@ jobs:
         run: |
           echo "Event: ${{ github.event_name }}"
           echo "Branch: ${{ github.ref_name }}"
-          echo "Actor: ${{ github.actor }} "
+          echo '"Actor: ${{ github.actor }}"'
+      - name: Run only on main
+        if: ${{ github.ref == 'ref/heads/main' }}
+        run: echo "Main branch detected"
         
