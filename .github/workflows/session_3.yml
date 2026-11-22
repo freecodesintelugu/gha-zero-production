@@ -1,6 +1,8 @@
 #EXPRESSIONS
 name: expression demo
 on: push
+env:
+  APP_NAME: demo-app
 jobs:
   demo:
     runs-on: ubuntu-slim
@@ -13,4 +15,14 @@ jobs:
       - name: Run only on main
         if: "${{ github.ref == 'refs/heads/main' }}"
         run: echo "Main branch detected"
-        
+#context 
+  context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Display Github and context
+        run: |
+          echo "Repository: ${{ github.repository }}"
+          echo "Branch: ${{ github.ref_name }}"
+          echo "APP: $APP_NAME"
+
+      
