@@ -24,5 +24,19 @@ jobs:
           echo "Repository: ${{ github.repository }}"
           echo "Branch: ${{ github.ref_name }}"
           echo "APP: $APP_NAME"
+      - name: use repo variable
+        env:
+          DEPLOY_REGION: ${{ vars.DEPLOY_REGION }}
+        run: 'echo "Region: $DEPLOY_REGION"'
+      - name: check secret safely
+        env:
+          APP_TOKEN: ${{ secrets.DEMO_API_TOKEN }}
+        run: |
+          if [ -n "$API_TOKEN" ]; then
+            echo "API token is configuerd"
+          else
+            echo "API token is not configured "
+          fi
+       
 
       
