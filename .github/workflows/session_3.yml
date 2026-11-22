@@ -11,6 +11,6 @@ jobs:
           echo "Branch: ${{ github.ref_name }}"
           echo '"Actor: ${{ github.actor }}"'
       - name: Run only on main
-        if: ${{ github.ref == 'ref/heads/main' }}
+        if: ${{ github.ref == 'refs/heads/main' }}
         run: echo "Main branch detected"
         
