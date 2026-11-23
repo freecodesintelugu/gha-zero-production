@@ -37,6 +37,27 @@ jobs:
           else
             echo "API token is not configured "
           fi
-       
+# steps , needs , matrix , runner
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      label: ${{ steps.meta.outputs.label }}
+    steps:
+      - name: Create output
+        id: meta
+        run: echo "label=build-${GITHUB_RUN_NUMBER}" >> "$GITHUB_OUTPUT"
+  test:
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.10', '3.11', '3.12']
+    steps:
+      - name: Disply context vaules
+        run: |
+          echo "Runner OS: ${{ runner.os }}"
+          echo "Build label: ${{ needs.prepare.outputs.label }}"
+          echo "python: ${{ matrix.python-version }}"
+        
 
       
